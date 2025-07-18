@@ -1,0 +1,110 @@
+/* Root and theme colors */
+/* 
+  Brand palette for Tic Tac Toe
+  --primary: #1976d2   (blue)
+  --accent: #fbc02d    (yellow)
+  --secondary: #ffffff (white)
+*/
+:root {
+  --color-primary: #1976d2;
+  --color-accent: #fbc02d;
+  --color-secondary: #ffffff;
+  --color-board-border: #e3e7ed;
+  --color-cell-border: #dae8f5;
+  --color-background: #ffffff;
+  --color-x: #1976d2;
+  --color-o: #fbc02d;
+}
+
+body, html {
+  background: var(--color-background);
+  color: var(--color-primary);
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+}
+
+.tic-tac-toe-app {
+  min-height: 100vh;
+  font-family: inherit;
+  background: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.players-row {
+  margin-bottom: 0.6rem;
+  font-family: inherit;
+}
+
+.ttt-board {
+  margin-top: 0.4rem;
+  border-radius: 14px;
+}
+
+.ttt-square {
+  width: 64px;
+  height: 64px;
+  font-size: 2.1rem;
+  font-family: inherit;
+  border: 1px solid var(--color-cell-border);
+  background: var(--color-secondary);
+  cursor: pointer;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s, box-shadow 0.12s;
+  user-select: none;
+  font-weight: 500;
+}
+.ttt-square:focus, .ttt-square:active {
+  outline: none;
+  border: 2px solid var(--color-accent);
+  z-index: 1;
+}
+.ttt-square[disabled] {
+  opacity: 0.56;
+  cursor: default;
+}
+
+.ttt-reset-btn {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  border: none;
+  border-radius: 8px;
+  padding: 9px 32px;
+  font-size: 16px;
+  font-family: inherit;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.04);
+  opacity: 0.92;
+  transition: background 0.14s, opacity 0.12s;
+}
+.ttt-reset-btn:hover, .ttt-reset-btn:focus {
+  background: #1565c0;
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .ttt-board {
+    grid-template-columns: repeat(3, 48px) !important;
+    grid-template-rows: repeat(3, 48px) !important;
+  }
+  .ttt-square {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+  .players-row {
+    flex-direction: column;
+    gap: 8px !important;
+  }
+  .ttt-reset-btn {
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+}
